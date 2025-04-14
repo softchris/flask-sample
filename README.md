@@ -7,22 +7,6 @@ Welcome to the **Flask Sample Project**! This is a fun and simple project to dem
 - Manage carts (CRUD operations)
 - Fully tested with `unittest`
 
-## Installation 🛠️
-1. Clone this repository:
-   ```bash
-   git clone <repository-url>
-   cd flask-sample
-   ```
-2. Create a virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # On Windows: venv\Scripts\activate
-   ```
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
 ## Setting Up a Virtual Environment 🐍
 
 Before installing dependencies, it's recommended to set up a virtual environment to isolate your project:
@@ -40,6 +24,23 @@ venv\Scripts\activate
 ```
 
 Once activated, you can proceed to install the dependencies as described in the installation steps.
+
+## Installation 🛠️
+
+1. Clone this repository:
+   ```bash
+   git clone <repository-url>
+   cd flask-sample
+   ```
+2. Create a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate   # On Windows: venv\Scripts\activate
+   ```
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ## Running the Application ▶️
 1. Start the Flask server:

@@ -61,3 +61,6 @@ def update_cart_route(cart_id):
 def delete_cart_route(cart_id):
     delete_cart(cart_id)
     return jsonify({"message": "Cart deleted"}), 200
+
+if __name__ == "__main__":
+    app.run(debug=True)
