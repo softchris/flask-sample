@@ -1,32 +1,41 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-}
+import React, { useState } from 'react';
+import { Container, Navbar, Nav } from 'react-bootstrap';
+import Products from './components/Products';
+import Users from './components/Users';
+import Carts from './components/Carts';
 
 const App: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [activeTab, setActiveTab] = useState<string>('products');
 
-  useEffect(() => {
-    axios.get('http://127.0.0.1:5000/products')
-      .then(response => setProducts(response.data))
-      .catch(error => console.error('Error fetching products:', error));
-  }, []);
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'products':
+        return <Products />;
+      case 'users':
+        return <Users />;
+      case 'carts':
+        return <Carts />;
+      default:
+        return <Products />;
+    }
+  };
 
   return (
-    <div>
-      <h1>Products</h1>
-      <ul>
-        {products.map(product => (
-          <li key={product.id}>
-            {product.name} - ${product.price.toFixed(2)}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <Navbar bg="dark" variant="dark" expand="lg">
+        <Container>
+          <Navbar.Brand href="#">Flask Sample</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link onClick={() => setActiveTab('products')}>Products</Nav.Link>
+            <Nav.Link onClick={() => setActiveTab('users')}>Users</Nav.Link>
+            <Nav.Link onClick={() => setActiveTab('carts')}>Carts</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+      <Container className="mt-4">
+        {renderContent()}
+      </Container>
+    </>
   );
 };
 
